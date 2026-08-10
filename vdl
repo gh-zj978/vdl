@@ -1,0 +1,20 @@
+#! /bin/bash
+case "${1:-dl}" in
+	op|open)
+		mkdir /data/data/com.termux/files/usr/tmp/vdl 2>/dev/null
+		cd /data/data/com.termux/files/usr/tmp/vdl
+		yt-dlp -o 'video' "${!#}"&&mv video.* video &&\
+		termux-open   --content-type video ./video
+	;;
+	cb)
+		vdl "$(termux-clipboard-get)"
+	;;
+        download|dl|*)
+		if [[ -z "$1" || "$1" == '-h' || "$1" == '-help' || "$1" == 'help' || "$1" == '--help' || "$1" == '--h' ]];then
+			echo 'vdl (open|op)/(download|dl|[void]) URL'
+			exit 0
+		fi
+                cd /data/data/com.termux/files/home/storage/dcim/yt-dlp && \
+                yt-dlp "${!#}"&&termux-media-scan -r .
+        ;;
+esac
