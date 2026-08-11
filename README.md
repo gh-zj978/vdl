@@ -6,3 +6,7 @@ Can make you download video by `yt-dlp` easier.
 
 # Depends
 `yt-dlp termux-api`
+> [!NOTE]
+>`termux-setup-storage` is required.
+
+
