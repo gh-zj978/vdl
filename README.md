@@ -8,5 +8,5 @@ Can make you download video by `yt-dlp` easier.
 `yt-dlp termux-api`
 > [!NOTE]
 >`termux-setup-storage` is required.
-
+>Also set `allow-external-apps=true` in `~/.termux/termux.properties`
 
